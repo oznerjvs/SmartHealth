@@ -148,7 +148,7 @@ var RecipesGlobal =new Array();
 $(document).ready($(function () 
   {
   	var updatedData=busquedaRecetas(3,"");
-	alert(RecipesGlobal[0].name);
+	//alert(RecipesGlobal[0].name);
 	//paintRecipes(3);
  
      /*$(document).keydown(function(){
@@ -186,15 +186,15 @@ $(document).ready($(function ()
     setTimeout(function() { callback(); }, millis);
   }
 
-  function paintRecipes(numColumns){
+  function paintRecipes(numColumns, data2){
 	var targetdiv=$('#resultadoRecetas')
     var recetaDiv="<table>";
     for ( var i=0; i<data2.recetas.length; i++ ) {
 		if(i%numColumns==0)	recetaDiv+='<tr>'
-        recetaDiv+= '<td><div id="receta_'+i+'" class="detalle-receta" id_receta='+i+'>';
+        recetaDiv+= '<td><div id="receta_'+i+'" class="detalle-receta">';
 		var puntuacion='<div id="star_'+i+'" class="rating">&nbsp;</div>';
-		var textoReceta='<div id=textReceta_'+i+' class="texto-detalle"><p>'+data2.recetas[i].nombre+'</p></div>';
-		var imagenReceta='<div id=imagenReceta_'+i+' class="imagen-detalle"><img src="images/'+data2.recetas[i].imagen+'" width="82 "height="76"></div>';
+		var textoReceta='<div id=textReceta_'+i+' class="texto-detalle"><p>'+data2.recetas[i].name+'</p></div>';
+		var imagenReceta='<div id=imagenReceta_'+i+' class="imagen-detalle"><img src="data:image/jpg;base64,'+data2.recetas[i].image+'" width="82 "height="76"></div>';
 		recetaDiv+=puntuacion+textoReceta+imagenReceta;
 		recetaDiv+='</div></td>';
 		if(i%numColumns==numColumns-1) recetaDiv+='</tr>'
@@ -207,6 +207,7 @@ $(document).ready($(function ()
 	}
   
   }
+
 
   var exampleRecipe = {
     "name":"Langostinos Szechwan",
@@ -413,7 +414,7 @@ $(document).ready($(function ()
   	$('#recipePhoto').html(imgDisplay);
   }	
 
-  function busquedaRecetas(column, cat)
+    function busquedaRecetas(column, cat)
   {
   try
   {
