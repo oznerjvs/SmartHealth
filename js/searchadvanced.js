@@ -11,6 +11,8 @@ var value_s3=-1;
 var dataFiltrada;
 function mostrarAvanzada()
 {
+	var keyword=$('#keyboard')
+	busquedaRecetas(3,"",keyword.val());
     $("#search-advanced").show();
     $(".resultado-recetas").css("height","40%");
     $("#categorias-menu ").css("height","40%");   

@@ -147,7 +147,7 @@ var RecipesGlobal =new Array();
 
 $(document).ready($(function () 
   {
-  	var updatedData=busquedaRecetas(3,"");
+  	var updatedData=busquedaRecetas(3,"","");
 	//alert(RecipesGlobal[0].name);
 	//paintRecipes(3);
  
@@ -181,13 +181,14 @@ $(document).ready($(function ()
 
 
   
-    function busquedaRecetas(column, cat)
+    function busquedaRecetas(column, cat, keyword)
   {
   try
   {
-  
+
 	var data="";
-	if(cat!="")	data="id_category="+cat;
+	if(cat!="")	data=data+"id_category="+cat;
+	else if(keyword!="") data=data+"keyword="+keyword;
 
     //-----------------------------------------------------------------------
     // 2) Send a http request with AJAX http://api.jquery.com/jQuery.ajax/
