@@ -13,6 +13,7 @@ function loginUser(user) {
     if (user.name !== null) {
         User = new UserData(user.nicename, user.email, user.recipes);
         alert("Bienvenido " + User.nicename);
+        
     }
 
 }
@@ -43,15 +44,20 @@ function InicioSesion()
                 {
                     json = JSON.parse(data);
                     loginUser(json);
+                    location.href="index.html";
                 }
-            });
+            });         
         }
-        else if(user == ""&&password == "")
+        else if(user == ""&&password == ""){
             alert("El nombre de usuario y la contraseña no pueden estar vacíos");
-        else if(user == "")
+            return "El nombre de usuario y la contraseña no pueden estar vacíos";
+        }
+        else if(user == ""){
             alert("El nombre de usuario no pueden estar vacío");
+            return "El nombre de usuario no pueden estar vacío";}
         else if(password == "")
             alert("La contraseña no pueden estar vacía");
+            return "La contraseña no pueden estar vacía";
         
     } catch (ex) {
         alert(ex.description)
